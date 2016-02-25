@@ -13,7 +13,7 @@ COPY mpd.sh /usr/bin/
 COPY mpd.conf /etc/mpd.conf
 
 ## expect NFS at music, container vol at cache
-VOLUME ["/var/lib/mpd/music", "/var/lib/mpd/cache"]
+VOLUME ["/var/lib/mpd/music", "/var/lib/mpd/playlists", "/var/lib/mpd/cache"]
 
 EXPOSE 8000 8001 6600
 
