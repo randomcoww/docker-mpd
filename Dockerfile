@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM debian:sid
 
 # Install mpd
 RUN export DEBIAN_FRONTEND='noninteractive' && \
