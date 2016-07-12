@@ -15,9 +15,9 @@ done
 
 [[ "$(ls -A $music)" ]] ||  exit
 
-ln -sf /var/lib/mpd/music $music
-ln -sf /var/lib/mpd/playlists $playlists
-ln -sf /var/lib/mpd/cache $cache
+ln -sf $music /var/lib/mpd/music
+ln -sf $playlists /var/lib/mpd/playlists
+ln -sf $cache /var/lib/mpd/cache
 
 touch $cache/{db_file,state_file,tag_cache} \
   && chmod 0777 -R $cache \
