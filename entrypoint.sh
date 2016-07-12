@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -o nounset
+
 while getopts ":m:p:c:" opt; do
   case "$opt" in
     m) export music=${OPTARG} ;;
