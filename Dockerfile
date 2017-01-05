@@ -17,7 +17,7 @@ RUN \
 COPY mpd.conf /etc/mpd.conf
 
 EXPOSE 8000 6600
-VOLUME $MUSIC_DIR $PLAYLISTS_DIR $CACHE_DIR
+VOLUME $PLAYLISTS_DIR $CACHE_DIR
 
 COPY entrypoint.sh /
 ENTRYPOINT ["/entrypoint.sh"]
