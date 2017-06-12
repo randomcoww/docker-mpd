@@ -1,0 +1,28 @@
+{
+  "kind": "Service",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "mpd",
+    "namespace": "default"
+  },
+  "spec": {
+    "type": "NodePort",
+    "ports": [
+      {
+        "port": 8000,
+        "name": "stream",
+        "targetPort": 8000,
+        "nodePort": 30060
+      },
+      {
+        "port": 6600,
+        "name": "control",
+        "targetPort": 6600,
+        "nodePort": 30061
+      }
+    ],
+    "selector": {
+      "k8s-app": "mpd"
+    }
+  }
+}

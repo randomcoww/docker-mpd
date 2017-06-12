@@ -1,0 +1,57 @@
+{
+  "kind": "Deployment",
+  "apiVersion": "extensions/v1beta1",
+  "metadata": {
+    "name": "mpd",
+    "namespace": "default"
+  },
+  "spec": {
+    "replicas": 1,
+    "selector": {
+      "matchLabels": {
+        "k8s-app": "mpd"
+      }
+    },
+    "template": {
+      "metadata": {
+        "labels": {
+          "k8s-app": "mpd"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "mpd",
+            "image": "randomcoww/mpd:latest",
+            "ports": [
+              {
+                "containerPort": 8000,
+                "protocol": "TCP"
+              },
+              {
+                "containerPort": 6600,
+                "protocol": "TCP"
+              }
+            ],
+            "volumeMounts": [
+              {
+                "mountPath": "/mpd/music",
+                "name": "glusterfsvol"
+              }
+            ]
+          }
+        ],
+        "volumes": [
+          {
+            "name": "glusterfsvol",
+            "glusterfs": {
+              "endpoints": "glusterfs-cluster",
+              "path": "music",
+              "readOnly": true
+            }
+          }
+        ]
+      }
+    }
+  }
+}
