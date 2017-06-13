@@ -2,8 +2,7 @@
   "kind": "Deployment",
   "apiVersion": "extensions/v1beta1",
   "metadata": {
-    "name": "mpd",
-    "namespace": "default"
+    "name": "mpd"
   },
   "spec": {
     "replicas": 1,
@@ -37,6 +36,10 @@
               {
                 "mountPath": "/mpd/music",
                 "name": "glusterfsvol"
+              },
+              {
+                "mountPath": "/mpd/cache",
+                "name": "mpd-pvc"
               }
             ]
           }
@@ -48,6 +51,12 @@
               "endpoints": "glusterfs-cluster",
               "path": "music",
               "readOnly": true
+            }
+          },
+          {
+            "name": "mpd-pvc",
+            "persistentVolumeClaim": {
+              "claimName": "mpd-pvc"
             }
           }
         ]

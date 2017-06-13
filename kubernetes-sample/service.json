@@ -2,8 +2,7 @@
   "kind": "Service",
   "apiVersion": "v1",
   "metadata": {
-    "name": "mpd",
-    "namespace": "default"
+    "name": "mpd"
   },
   "spec": {
     "type": "NodePort",
