@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 ## expect music passed in from mount, fail otherwise (mount not available?)
 [[ "$(ls -A /mpd/music)" ]] ||  exit
