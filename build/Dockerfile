@@ -3,6 +3,7 @@
 
 FROM alpine:3.7
 
+ENV MPD_MAJOR 0.20
 ENV MPD_VERSION 0.20.14
 
 RUN set -x \
@@ -36,7 +37,7 @@ RUN set -x \
   \
 ## build log4cplus
   && cd / \
-  && wget -O mpd.tar.xz https://www.musicpd.org/download/mpd/0.20/mpd-$MPD_VERSION.tar.xz \
+  && wget -O mpd.tar.xz https://www.musicpd.org/download/mpd/$MPD_MAJOR/mpd-$MPD_VERSION.tar.xz \
   && xz -d mpd.tar.xz \
   && tar xf mpd.tar --strip-components=1 -C /usr/src/mpd \
   && rm mpd.tar \
@@ -67,7 +68,7 @@ RUN set -x \
     --disable-cdio-paranoia \
     --disable-mms \
   && make -j "$(getconf _NPROCESSORS_ONLN)" \
-  && make install \
+  && make install-exec \
   \
 ## cleanup
   && cd / \
