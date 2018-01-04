@@ -13,9 +13,12 @@ RUN set -x \
     make \
     boost-dev \
     ffmpeg-dev \
+    faad2-dev \
+    libmodplug-dev \
     expat-dev \
     libnfs-dev \
     libid3tag-dev \
+    libsndfile-dev \
     sqlite-dev \
     libsamplerate-dev \
     soxr-dev \
@@ -61,7 +64,7 @@ RUN set -x \
     --disable-ao \
     --disable-pulse \
     --disable-solaris-output \
-    --disable-sidplay \
+    --with-zeroconf=no \
   && make -j "$(getconf _NPROCESSORS_ONLN)" \
   && make install-exec \
   \
