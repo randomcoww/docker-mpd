@@ -29,13 +29,6 @@ Alpine with default MPD package
 
 Built latest from source and omits a number of local playback options:
 
-    Music Player Daemon 0.20.14
-
-    Copyright (C) 2003-2007 Warren Dukes <warren.dukes@gmail.com>
-    Copyright 2008-2017 Max Kellermann <max.kellermann@gmail.com>
-    This is free software; see the source for copying conditions.  There is NO
-    warranty; not even MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-
     Database plugins:
      simple
 
@@ -49,9 +42,12 @@ Built latest from source and omits a number of local playback options:
      [oggflac] ogg oga
      [flac] flac
      [opus] opus ogg oga
+     [sndfile] wav aiff aif au snd paf iff svx sf voc w64 pvf xi htk caf sd2
      [dsdiff] dff
      [dsf] dsf
+     [faad] aac
      [wavpack] wv
+     [modplug] 669 amf ams dbm dfm dsm far it med mdl mod mtm mt2 okt s3m stm ult umx xm
      [ffmpeg] 16sv 3g2 3gp 4xm 8svx aa3 aac ac3 adx afc aif aifc aiff al alaw amr anim apc ape asf atrac au aud avi avm2 avs bap bfi c93 cak cin cmv cpk daud dct divx dts dv dvd dxa eac3 film flac flc fli fll flx flv g726 gsm gxf iss m1v m2v m2t m2ts m4a m4b m4v mad mj2 mjpeg mjpg mka mkv mlp mm mmf mov mp+ mp1 mp2 mp3 mp4 mpc mpeg mpg mpga mpp mpu mve mvi mxf nc nsv nut nuv oga ogm ogv ogx oma ogg omg opus psp pva qcp qt r3d ra ram rl2 rm rmvb roq rpl rvc shn smk snd sol son spx str swf tak tgi tgq tgv thp ts tsp tta xa xvid uv uv2 vb vid vob voc vp6 vmd wav webm wma wmv wsaud wsvga wv wve
      [pcm]
 
