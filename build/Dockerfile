@@ -1,7 +1,7 @@
 ## build script based on format of official haproxy dockerfile
 ## https://github.com/docker-library/haproxy/blob/master/1.8/alpine/Dockerfile
 
-FROM alpine:3.7
+FROM alpine:latest
 
 ENV MPD_MAJOR 0.20
 ENV MPD_VERSION 0.20.14
@@ -9,18 +9,18 @@ ENV MPD_VERSION 0.20.14
 RUN set -x \
   \
   && apk add --no-cache --virtual .build-deps \
-    xz \
-    tar \
     g++ \
-    boost-dev \
     make \
+    boost-dev \
     ffmpeg-dev \
-    libmpdclient-dev \
+    expat-dev \
+    libnfs-dev \
     libid3tag-dev \
     sqlite-dev \
     libsamplerate-dev \
     soxr-dev \
     curl-dev \
+    bzip2-dev \
     libcdio-dev \
     zlib-dev \
     flac-dev \
@@ -35,17 +35,14 @@ RUN set -x \
   \
   && mkdir -p /usr/src/mpd \
   \
-## build log4cplus
+## build
   && cd / \
   && wget -O mpd.tar.xz https://www.musicpd.org/download/mpd/$MPD_MAJOR/mpd-$MPD_VERSION.tar.xz \
-  && xz -d mpd.tar.xz \
-  && tar xf mpd.tar --strip-components=1 -C /usr/src/mpd \
-  && rm mpd.tar \
+  && tar xf mpd.tar.xz --strip-components=1 -C /usr/src/mpd \
+  && rm mpd.tar.xz \
   && cd /usr/src/mpd \
   \
   && CFLAGS='-Os' CXXFLAGS='-Os' ./configure \
-    --build=$CBUILD \
-    --host=$CHOST \
     --prefix=/usr/local \
     --sysconfdir=/etc \
     --disable-documentation \
@@ -65,8 +62,6 @@ RUN set -x \
     --disable-pulse \
     --disable-solaris-output \
     --disable-sidplay \
-    --disable-cdio-paranoia \
-    --disable-mms \
   && make -j "$(getconf _NPROCESSORS_ONLN)" \
   && make install-exec \
   \
@@ -84,6 +79,8 @@ RUN set -x \
   && apk del .build-deps \
   \
 ## paths
+  && rm -rf /usr/share/* \
+  \
   && mkdir -p \
     /mpd/playlists \
     /mpd/cache \
