@@ -6,7 +6,7 @@ Default configuration creates a FLAC-3 stream over HTTP on port 8000
 
 #### Sample usage
 
-Docker run: 
+Docker run:
 
     docker run -it --rm \
     -v /music_path:/mpd/music \
@@ -19,15 +19,7 @@ Kubernetes:
 
 https://github.com/randomcoww/environment-config/blob/master/manifests_extra/mpd
 
-#### Two types of images built:
-
-##### Date tagged images:
-  
-Alpine with default MPD package
-
-##### *-build images:
-
-Built latest from source and omits a number of local playback options:
+#### Built options
 
     Database plugins:
      simple
