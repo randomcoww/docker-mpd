@@ -6,7 +6,7 @@ Default configuration creates a FLAC-3 stream over HTTP on port 8000
 
 #### Sample usage
 
-Docker run:
+##### Docker run:
 
     docker run -it --rm \
     -v /music_path:/mpd/music \
@@ -15,7 +15,7 @@ Docker run:
     -p 6600:6600 -p 8000:8000 \
     randomcoww/mpd:latest
 
-Kubernetes:
+##### Kubernetes:
 
 https://github.com/randomcoww/environment-config/blob/master/manifests_extra/mpd
 
