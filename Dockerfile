@@ -4,7 +4,7 @@
 FROM alpine:latest
 
 ENV MPD_MAJOR 0.20
-ENV MPD_VERSION 0.20.15
+ENV MPD_VERSION 0.20.17
 
 RUN set -x \
   \
