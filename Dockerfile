@@ -1,7 +1,7 @@
 ## build script based on format of official haproxy dockerfile
 ## https://github.com/docker-library/haproxy/blob/master/1.8/alpine/Dockerfile
 
-FROM alpine:latest
+FROM alpine:edge
 
 ENV MPD_MAJOR 0.20
 ENV MPD_VERSION 0.20.18
