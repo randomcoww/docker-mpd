@@ -4,7 +4,7 @@
 FROM alpine:edge
 
 ENV MPD_MAJOR 0.20
-ENV MPD_VERSION 0.20.18
+ENV MPD_VERSION 0.20.20
 
 RUN set -x \
   \
