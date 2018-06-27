@@ -96,5 +96,5 @@ EXPOSE 8000 6600
 
 COPY mpd.conf /etc/mpd.conf
 
-COPY entrypoint.sh /
-ENTRYPOINT ["/entrypoint.sh"]
+COPY docker-entrypoint.sh /
+ENTRYPOINT ["/docker-entrypoint.sh"]
