@@ -1,13 +1,11 @@
 #!/bin/sh
+set -e
 
-## expect music passed in from mount, fail otherwise (mount not available?)
-[[ "$(ls -A /mpd/music)" ]] ||  exit
-
+mkdir -p /mpd/cache
 touch \
   /mpd/cache/tag_cache \
   /mpd/cache/state \
   /mpd/cache/sticker.sql
-
 chown -R mpd /mpd/cache
 
 ## start
