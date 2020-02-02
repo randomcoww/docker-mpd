@@ -15,22 +15,22 @@ RUN set -x \
     libao-dev \
     libmad-dev \
     flac-dev \
-	  libogg-dev \
+    libogg-dev \
     faad2-dev \
     libid3tag-dev \
     libvorbis-dev \
     alsa-lib-dev \
-	  libsamplerate-dev \
+    libsamplerate-dev \
     libshout-dev \
     libmodplug-dev \
     boost-dev \
     icu-dev \
-	  libnfs-dev \
+    libnfs-dev \
     # samba-dev \
     opus-dev \
     ffmpeg-dev \
     libmpdclient-dev \
-	  # libcdio-paranoia-dev \
+    # libcdio-paranoia-dev \
     libcap \
     # gtest-dev \
     # gtest \
@@ -56,7 +56,7 @@ RUN set -x \
     --localstatedir=/var \
     --buildtype=plain \
     output \
-	&& ninja -C output install \
+  && ninja -C output install \
   \
 ## cleanup
   && rm -rf /usr/src \
