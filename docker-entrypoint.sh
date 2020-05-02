@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-mkdir -p /mpd/cache
+mkdir -p /mpd/cache/playlists
 touch \
   /mpd/cache/tag_cache \
   /mpd/cache/state \
