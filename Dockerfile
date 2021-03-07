@@ -1,7 +1,7 @@
 FROM alpine:edge
 
-ARG MPD_MAJOR=0.22
-ARG MPDv1_VERSION=0.22.1
+ARG MPD_VERSION=0.22
+ARG MPD_PATCH=6
 
 RUN set -x \
   \
@@ -46,7 +46,7 @@ RUN set -x \
 ## build
   && mkdir -p /usr/src/mpd \
   && cd /usr/src/mpd \
-  && wget -O mpd.tar.xz https://www.musicpd.org/download/mpd/$MPD_MAJOR/mpd-$MPD_VERSION.tar.xz \
+  && wget -O mpd.tar.xz https://www.musicpd.org/download/mpd/$MPD_VERSION/mpd-$MPD_VERSION.$MPD_PATCH.tar.xz \
   && tar xf mpd.tar.xz --strip-components=1 -C /usr/src/mpd \
   && rm mpd.tar.xz \
   \
