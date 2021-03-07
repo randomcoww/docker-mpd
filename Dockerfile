@@ -42,6 +42,7 @@ RUN set -x \
     zlib-dev \
     mpg123-dev \
     wavpack-dev \
+    ca-certificates \
   \
 ## build
   && mkdir -p /usr/src/mpd \
