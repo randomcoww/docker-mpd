@@ -10,19 +10,6 @@ https://hub.docker.com/repository/docker/randomcoww/mpd
 
 #### Sample usage
 
-**Docker**
-
-```bash
-docker run -it --rm \
-    -v music_path:/mpd/music \
-    -v cache_path:/mpd/cache \
-    -p 6600:6600 \
-    -p 8000:8000 \
-    randomcoww/mpd:0.22.1
-```
-
-**Podman**
-
 ```bash
 podman run -it --rm \
     --security-opt label=disable \
@@ -33,6 +20,22 @@ podman run -it --rm \
     randomcoww/mpd:0.22.1
 ```
 
-**Kubernetes**
+### Image build
 
-https://github.com/randomcoww/terraform-infra/tree/master/services/mpd
+```
+mkdir -p build
+export TMPDIR=$(pwd)/build
+
+VERSION=0.23
+PATCH=5
+
+podman build \
+  --build-arg VERSION=$VERSION \
+  --build-arg PATCH=$PATCH \
+  -f Dockerfile \
+  -t ghcr.io/randomcoww/mpd:$VERSION.$PATCH
+```
+
+```
+podman push ghcr.io/randomcoww/mpd:$VERSION.$PATCH
+```
