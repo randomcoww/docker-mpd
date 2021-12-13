@@ -17,7 +17,7 @@ podman run -it --rm \
     -v cache_path:/mpd/cache \
     -p 6600:6600 \
     -p 8000:8000 \
-    randomcoww/mpd:0.22.1
+    ghcr.io/randomcoww/mpd:0.23.5
 ```
 
 ### Image build
